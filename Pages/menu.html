@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Menu | FastFoodZone</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger px-3">
+    <a class="navbar-brand" href="home.html">FastFoodZone</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="menu.html" class="nav-link active">Menu</a></li>
+        <li class="nav-item">
+        <a href="cart.html" class="nav-link">
+            Cart <span id="cart-count" class="badge bg-light text-danger ms-1">0</span>
+        </a>
+        </li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        <li class="nav-item"><a href="signup.html" class="nav-link">Sign Up</a></li>
+        <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="container my-5">
+    <h2 class="text-center fw-bold mb-4">Full Menu</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+      <!-- Item 1 -->
+      <div class="col">
+        <div class="card h-100">
+          <img src="../images/double_burger.jpg" class="card-img-top" alt="Burger">
+          <div class="card-body">
+            <h5 class="card-title">Double Cheese Burger</h5>
+            <p class="card-text">Grilled beef patty, cheese, lettuce, onions.</p>
+            <span class="badge bg-success">$5.99</span>
+            <button class="btn btn-danger mt-2 w-100" onclick="addToCart('Double Cheese Burger', 5.99)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="col">
+        <div class="card h-100">
+          <img src="../images/pizza.jpg" class="card-img-top" alt="Pizza">
+          <div class="card-body">
+            <h5 class="card-title">Large Pepperoni Pizza</h5>
+            <p class="card-text">Tomato sauce, mozzarella, pepperoni slices.</p>
+            <span class="badge bg-success">$11.99</span>
+            <button class="btn btn-danger mt-2 w-100" onclick="addToCart('Large Pepperoni Pizza', 11.99)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="col">
+        <div class="card h-100">
+          <img src="../images/fried-chicken.jpg" class="card-img-top" alt="Fried Chicken">
+          <div class="card-body">
+            <h5 class="card-title">Spicy Chicken Bucket</h5>
+            <p class="card-text">8 pieces of crispy, spicy fried chicken.</p>
+            <span class="badge bg-success">$14.99</span>
+            <button class="btn btn-danger mt-2 w-100" onclick="addToCart('Spicy Chicken Bucket', 14.99)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="col">
+        <div class="card h-100">
+          <img src="../images/fries.jpg" class="card-img-top" alt="Fries">
+          <div class="card-body">
+            <h5 class="card-title">Loaded Fries</h5>
+            <p class="card-text">Cheesy fries topped with bacon and jalapeños.</p>
+            <span class="badge bg-success">$4.99</span>
+            <button class="btn btn-danger mt-2 w-100" onclick="addToCart('Loaded Fries', 4.99)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="col">
+        <div class="card h-100">
+          <img src="../images/shake.jpg" class="card-img-top" alt="Milkshake">
+          <div class="card-body">
+            <h5 class="card-title">Chocolate Milkshake</h5>
+            <p class="card-text">Thick and creamy chocolate milkshake.</p>
+            <span class="badge bg-success">$3.49</span>
+            <button class="btn btn-danger mt-2 w-100" onclick="addToCart('Chocolate Milkshake', 3.49)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="col">
+        <div class="card h-100">
+          <img src="../images/icecream.jpg" class="card-img-top" alt="Ice Cream">
+          <div class="card-body">
+            <h5 class="card-title">Vanilla Ice Cream Cup</h5>
+            <p class="card-text">Classic vanilla soft serve with toppings.</p>
+            <span class="badge bg-success">$2.99</span>
+            <button class="btn btn-danger mt-2 w-100" onclick="addToCart('Vanilla Ice Cream Cup', 2.99)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    &copy; 2025 FastFoodZone. All rights reserved.
+  </footer>
+
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script>
+    function addToCart(name, price) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const index = cart.findIndex(i => i.name === name);
+      if (index > -1) {
+        cart[index].qty += 1;
+      } else {
+        cart.push({ name, price, qty: 1 });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart.`);
+    }
+  </script>
+  <script src="../js/app.js"></script>
+
+</body>
+</html>

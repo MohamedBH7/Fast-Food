@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout | FastFoodZone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <style>
+    .form-section {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .payment-option {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger px-3">
+    <a class="navbar-brand" href="home.html">FastFoodZone</a>
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
+        <li class="nav-item">
+        <a href="cart.html" class="nav-link">
+            Cart <span id="cart-count" class="badge bg-light text-danger ms-1">0</span>
+        </a>
+        </li>    </ul>
+  </nav>
+
+  <div class="container my-5">
+    <h2 class="mb-4 text-center fw-bold">Checkout</h2>
+
+    <div class="row">
+      <div class="col-md-8 offset-md-2 form-section">
+        <form id="checkoutForm">
+          <h4 class="mb-3">Delivery Details</h4>
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" required />
+          </div>
+
+          <h4 class="mt-4 mb-3">Payment Method</h4>
+          <div class="form-check payment-option">
+            <input class="form-check-input" type="radio" name="payment" id="cash" value="Cash" checked>
+            <label class="form-check-label" for="cash">Cash on Delivery</label>
+          </div>
+          <div class="form-check payment-option">
+            <input class="form-check-input" type="radio" name="payment" id="visa" value="Visa">
+            <label class="form-check-label" for="visa">Visa</label>
+          </div>
+          <div class="form-check payment-option">
+            <input class="form-check-input" type="radio" name="payment" id="master" value="MasterCard">
+            <label class="form-check-label" for="master">MasterCard</label>
+          </div>
+          <div class="form-check payment-option">
+            <input class="form-check-input" type="radio" name="payment" id="benefit" value="BenefitPay">
+            <label class="form-check-label" for="benefit">BenefitPay</label>
+          </div>
+
+          <h5 class="text-end mt-3">Order Total: <span id="order-total">$0.00</span></h5>
+
+          <div class="text-end mt-4">
+            <button type="submit" class="btn btn-success btn-lg">Place Order</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const total = urlParams.get('total') || "0";
+
+    const orderTotalElem = document.getElementById('order-total');
+    if (orderTotalElem) {
+      orderTotalElem.textContent = `$${parseFloat(total).toFixed(2)}`;
+    }
+
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const payment = document.querySelector('input[name="payment"]:checked').value;
+
+      if (!name || !address || !phone) {
+        alert('Please fill in all delivery details.');
+        return;
+      }
+
+      if (payment === 'Visa' || payment === 'MasterCard') {
+        window.location.href = `payment-gateway.html?total=${total}&name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}`;
+        return;
+      }
+
+      if (payment === 'Cash' || payment === 'BenefitPay') {
+        const paymentSuccess = true;
+        window.location.href = paymentSuccess ? 'success.html' : 'failed.html';
+      }
+    });
+  </script>
+  <script src="../js/app.js"></script>
+
+</body>
+</html>

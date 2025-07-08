@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+      rel="stylesheet" 
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+      crossorigin="anonymous"
+    >
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" 
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" 
+      crossorigin="anonymous" 
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #fbf3ff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .container {
+        position: absolute;
+        max-width: 700px;
+        height: 400px;
+        margin: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .myCard {
+        background: #fff;
+        height: 100%;
+        border-radius: 25px;
+        box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: row;
+      }
+      .myLeftCtn, .myRightCtn {
+        border-radius: 25px;
+        height: 100%;
+        padding: 40px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .myLeftCtn {
+        background: #fff;
+        flex: 1;
+      }
+      .myRightCtn {
+        background: linear-gradient(45deg, #f046ff, #9b00e8);
+        color: #c0c0c0;
+        flex: 1;
+        text-align: center;
+        padding: 40px 30px;
+      }
+      .myLeftCtn header {
+        color: blueviolet;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      .myRightCtn header {
+        color: #fff;
+        font-size: 44px;
+        margin-bottom: 20px;
+      }
+      .box p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        color: #ddd;
+      }
+      .form-group {
+        position: relative;
+        margin-bottom: 25px;
+      }
+      .myInput {
+        width: 100%;
+        border-radius: 25px;
+        padding: 12px 20px 12px 45px;
+        border: none;
+        box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.15);
+        font-size: 16px;
+        transition: 0.3s ease;
+      }
+      .myInput:focus {
+        outline: none;
+        box-shadow: 0 0 8px 2px blueviolet;
+      }
+      .fas {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: blueviolet;
+        font-size: 18px;
+      }
+      .butt {
+        background: linear-gradient(45deg, #bb36fd, #9b00e8);
+        color: #fff;
+        width: 100%;
+        border: none;
+        border-radius: 25px;
+        padding: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.2);
+        transition: background 0.3s ease;
+      }
+      .butt:hover {
+        background: linear-gradient(45deg, #c85bff, #b726ff);
+      }
+      .butt:focus {
+        outline: none;
+      }
+      .forgot-link {
+        text-align: right;
+        margin-top: -15px;
+        margin-bottom: 20px;
+      }
+      .forgot-link a {
+        color: blueviolet;
+        font-size: 14px;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .forgot-link a:hover {
+        text-decoration: underline;
+      }
+      .butt_out {
+        background: transparent;
+        color: #fff;
+        width: 140px;
+        border: 2px solid #fff;
+        border-radius: 25px;
+        padding: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.2);
+        transition: border-color 0.3s ease, color 0.3s ease;
+      }
+      .butt_out:hover {
+        border-color: #eecbff;
+        color: #eecbff;
+      }
+      .butt_out:focus {
+        outline: none;
+      }
+      /* Responsive */
+      @media (max-width: 767.98px) {
+        .myCard {
+          flex-direction: column;
+          height: auto;
+          border-radius: 15px;
+        }
+        .myLeftCtn, .myRightCtn {
+          border-radius: 15px;
+          padding: 30px 20px;
+          height: auto;
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+</head>
+<body> 
+  <div class="container">
+    <div class="myCard">
+      <div class="myLeftCtn"> 
+        <form class="myForm" novalidate>
+          <header>Login to your account</header>
+
+          <div class="form-group">
+            <i class="fas fa-user"></i>
+            <input class="myInput" type="text" placeholder="Username or Email" id="username" required> 
+            <div class="invalid-feedback">Please enter your username or email.</div>
+          </div>
+
+          <div class="form-group">
+            <i class="fas fa-lock"></i>
+            <input class="myInput" type="password" id="password" placeholder="Password" required minlength="6"> 
+            <div class="invalid-feedback">Password must be at least 6 characters.</div>
+          </div>
+
+          <div class="forgot-link">
+            <a href="Forgot-password.html">Forgot password?</a>
+          </div>
+
+          <input type="submit" class="butt" value="LOGIN">
+        </form>
+      </div>
+      <div class="myRightCtn">
+        <div class="box">
+          <header>Welcome Back!</header>
+          <p>Enter your credentials to access your account and continue where you left off.</p>
+          <input type="button" class="butt_out" value="Create Account"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  (function() {
+    'use strict';
+    const form = document.querySelector('.myForm');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        event.stopPropagation();
+        form.classList.add('was-validated');
+        return;
+      }
+      // If valid, redirect to home.html
+      window.location.href = 'home.html';
+    }, false);
+  })();
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

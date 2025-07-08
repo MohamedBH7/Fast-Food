@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment Gateway | FastFoodZone</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <style>
+    .payment-form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger px-3">
+    <a class="navbar-brand" href="home.html">FastFoodZone</a>
+  </nav>
+
+  <div class="container my-5">
+    <h2 class="text-center mb-4 fw-bold">Enter Card Details</h2>
+    <div class="row">
+      <div class="col-md-6 offset-md-3 payment-form">
+        <form id="cardForm" novalidate>
+          <div class="mb-3">
+            <label class="form-label">Cardholder Name</label>
+            <input type="text" class="form-control" id="cardName" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Card Number</label>
+            <input type="text" class="form-control" id="cardNumber" maxlength="16" required>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Expiry Date</label>
+              <input type="month" class="form-control" id="expiry" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">CVV</label>
+              <input type="text" class="form-control" id="cvv" maxlength="3" required>
+            </div>
+          </div>
+          <div class="text-end">
+            <button type="submit" class="btn btn-success btn-lg">Pay</button>
+          </div>
+        </form>
+
+        <div class="text-center mt-3">
+          <button id="test-failed-btn" class="btn btn-outline-danger">Test Failed Payment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('cardForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const cardName = document.getElementById('cardName').value.trim();
+      const cardNumber = document.getElementById('cardNumber').value.trim();
+      const expiry = document.getElementById('expiry').value.trim();
+      const cvv = document.getElementById('cvv').value.trim();
+
+      if (!cardName || cardNumber.length !== 16 || !expiry || cvv.length !== 3 || isNaN(cardNumber) || isNaN(cvv)) {
+        alert('Please fill in all fields correctly.');
+        return;
+      }
+
+         localStorage.removeItem('cart');
+        window.location.href = 'success.html';
+   
+    
+      }
+    );
+
+    document.getElementById('test-failed-btn').addEventListener('click', function () {
+      window.location.href = 'failed.html';
+    });
+  </script>
+
+</body>
+</html>

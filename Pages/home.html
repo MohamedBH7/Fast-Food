@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FastFoodZone | Home</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style>
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 10px;
+}
+
+  </style>
+
+</head>
+<body class="bg-white">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger px-3">
+    <a class="navbar-brand fw-bold" href="#">FastFoodZone</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a href="home.html" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
+    <li class="nav-item">
+    <a href="cart.html" class="nav-link">
+        Cart <span id="cart-count" class="badge bg-light text-danger ms-1">0</span>
+    </a>
+    </li>
+
+
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        <li class="nav-item"><a href="signup.html" class="nav-link">Sign Up</a></li>
+        <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="bg-warning py-5 text-center text-dark">
+    <h1 class="display-4 fw-bold">Delicious Fast Food, Delivered Hot</h1>
+    <p class="lead">Burgers, Pizzas, Fried Chicken & More</p>
+    <a href="menu.html" class="btn btn-dark btn-lg mt-3">View Full Menu</a>
+  </header>
+
+  <!-- Products Section -->
+  <section class="container my-5">
+    <h2 class="text-center fw-bold mb-4">Popular Items</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card shadow">
+          <img src="../images/double_burger.jpg" class="card-img-top" alt="Burger">
+          <div class="card-body">
+            <h5 class="card-title">Classic Cheeseburger</h5>
+            <p class="card-text">Juicy grilled beef, cheddar, lettuce, tomato & sauce.</p>
+            <button class="btn btn-danger w-100">Order Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow">
+          <img src="../images/pizza.jpg" class="card-img-top" alt="Pizza">
+          <div class="card-body">
+            <h5 class="card-title">Pepperoni Pizza</h5>
+            <p class="card-text">Loaded with cheese, pepperoni & our special sauce.</p>
+            <button class="btn btn-danger w-100">Order Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow">
+          <img src="../images/fried-chicken.jpg" class="card-img-top" alt="Fried Chicken">
+          <div class="card-body">
+            <h5 class="card-title">Crispy Fried Chicken</h5>
+            <p class="card-text">Golden, crispy & juicy inside – a perfect combo!</p>
+            <button class="btn btn-danger w-100">Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add below your existing Products Section -->
+<section class="container my-5">
+  <h2 class="text-center fw-bold mb-4">Today's Specials</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover text-center align-middle">
+      <thead class="table-danger">
+        <tr>
+          <th>Item</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Spicy Chicken Wrap</td>
+          <td>Grilled chicken, spicy mayo, lettuce in a tortilla wrap</td>
+          <td>$5.99</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Loaded Nachos</td>
+          <td>Crispy nachos with cheese, jalapeños, salsa, and sour cream</td>
+          <td>$4.50</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Veggie Delight Pizza</td>
+          <td>Fresh vegetables, cheese, and tomato sauce</td>
+          <td>$7.99</td>
+          <td>No</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Add small cards section -->
+<section class="container my-5">
+  <h2 class="text-center fw-bold mb-4">Why Choose Us?</h2>
+  <div class="row text-center g-4">
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body">
+          <i class="fas fa-shipping-fast fa-2x text-danger mb-3"></i>
+          <h5 class="card-title fw-bold">Fast Delivery</h5>
+          <p class="card-text">Your orders delivered hot & fresh in under 30 minutes.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body">
+          <i class="fas fa-leaf fa-2x text-success mb-3"></i>
+          <h5 class="card-title fw-bold">Fresh Ingredients</h5>
+          <p class="card-text">We use only the best quality, locally-sourced ingredients.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body">
+          <i class="fas fa-tags fa-2x text-warning mb-3"></i>
+          <h5 class="card-title fw-bold">Great Offers</h5>
+          <p class="card-text">Exciting deals and discounts updated weekly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container my-5">
+  <div class="bg-light p-5 rounded text-center shadow-sm">
+    <h2 class="fw-bold mb-3">Subscribe to Our Newsletter</h2>
+    <p class="mb-4">Get the latest news, offers, and exclusive deals delivered right to your inbox.</p>
+    <form class="row g-2 justify-content-center">
+      <div class="col-md-6 col-sm-8">
+        <input type="email" class="form-control" placeholder="Enter your email" required />
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-danger px-4">Subscribe</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    <p class="mb-0">&copy; 2025 FastFoodZone. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/app.js"></script>
+    
+</body>
+</html>
