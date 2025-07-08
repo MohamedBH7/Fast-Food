@@ -8,7 +8,7 @@ $(document).ready(function () {
       alert("Please fill in all fields.");
     } else {
       alert("Login success (frontend only). Redirecting...");
-      window.location.href = "index.html"; // Must exist in /Pages
+      window.location.href = "docs/index.html"; // Must exist in /Pages
     }
   });
 
